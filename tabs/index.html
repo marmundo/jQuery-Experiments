@@ -3,41 +3,83 @@
 <head>
   <meta charset="utf-8">
   <title>tabs demo</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="custom.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
  
-<div id="tabs">
-  <ul class="nav-tabs">
-    <li><a href="#tab-1"><span>One</span></a></li>
-    <li><a href="#tab-2"><span>Two</span></a></li>
-    <li><a href="#tab-3"><span>Three</span></a></li>
-  </ul>
-  <div id="tab-1">
-  <p>Tab 1</p>
-    <button class="next">
-    	Próximo
-    </button>
-  </div>
-  <div id="tab-2">
-  <p>Tab 2</p>
-  
-    <button class="prev">
-    	Anterior
-    </button>
-    <button class="next">
-    	Próximo
-    </button>
-  </div>
-  <div id="tab-3">
-    <p>Tab 3</p>
-    <button class="prev">
-    	Anterior
-    </button>
-  </div>
-</div>
+<div class="container">
+	<div class="row">
+	<div class="col-md-12">
+		<div id="tabs">
+	  		<ul class="nav-tabs">
+			    <li><a href="#tab-1"><span>One</span></a></li>
+			    <li><a href="#tab-2"><span>Two</span></a></li>
+			    <li><a href="#tab-3"><span>Three</span></a></li>
+	  		</ul>
+		  	<div id="tab-1">
+		  		<div class="row">
+		  			<div class="col-md-2">
+		  				<p>Cliente:</p>
+		  			</div>
+		  			<div class="col-md-10">
+		  				<input type="text" name="cliente" id='cliente'>
+		  			</div>
+		  		</div>
+		  		<div class="row">
+		  			<div class="col-md-2">
+		  				<p>Endereço:</p>
+		  			</div>
+		  			<div class="col-md-10">
+		  				<input type="text-area" name="endereco" id='endereco'>
+		  			</div>
+		  		</div>
+		  		<div class="row">
+		  			<div class="col-md-2">
+		  				<p>Sexo:</p>
+		  			</div>
+		  			<div class="col-md-10">
+		  				<form action="">
+  							<input type="radio" name="gender" value="masculino"> Masculino<br>
+						 	 <input type="radio" name="gender" value="feminino"> Feminino<br>
+						 	 <input type="radio" name="gender" value="outro"> Outro
+						</form>
+		  			</div>
+		  		</div>
+		  		<div class="row">
+		    		<button class="next btn">
+		    			Próximo
+		    		</button>
+		    	</div>
+		  	</div>
+		  	<div id="tab-2">
+		  		<div class="row">
+		  			<div class="col-md-12" id='ola'>
+						
+		  			</div>
+		  		</div>
+		  		<div class="row">
+			  		<button class="prev btn">
+			    		Anterior
+			    	</button>
+			    	<button class="next btn">
+			    		Próximo
+			    	</button>
+		    	</div>
+		  	</div>
+		  	<div id="tab-3">
+		    	<p>Tab 3</p>
+		    	<button class="prev btn">
+		    		Anterior
+		    	</button>
+		  	</div>
+		</div> <!--div tabs-->
+		</div><!--colum-->
+	</div> <!-- div row-->
+</div> <!--div container-->
  
 
 
@@ -48,6 +90,7 @@
 	$('.next').click(function(e){
 	    var active=$tabs.tabs('option','active');
 	    $tabs.tabs('option','active',active+1).click();
+	    showHelloCliente();
 	    e.preventDefault();
 	});
 
@@ -56,6 +99,13 @@
         $tabs.tabs('option','active',active-1).click();
         e.preventDefault();
     });	
+
+    function showHelloCliente(){
+    	var ola="Olá "+$('#cliente').val()+"<br\>"
+    	var cadastre="Cadastre suas notas"
+    	$("#ola").append(ola+cadastre)
+    };
+   
 
   </script>
 	
